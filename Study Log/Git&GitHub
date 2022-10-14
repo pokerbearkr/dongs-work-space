@@ -1,0 +1,6 @@
+cd:이동 rm:삭제 ls:리스트보기 vim: vim파일생성 commit:저장소에 파일 올리는것 git log:로그보기
+Branch:브랜치 깃으로 버전관리를 시작하면 master라는 브랜치가 만들어지는데 master에서 뻗어나오는것을 분기(branch)한다 라고함
+git branch:브랜치확인, git branch apple: apple이라는 브랜치 생성 git log master..apple:master에는없고apple에만 있는거 출력
+git remote add origin 주소:원격저장소 연결
+git remote -v 제대로 연결됐는지 확인
+git push 파일 푸쉬 
