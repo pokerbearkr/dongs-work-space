@@ -1,3 +1,9 @@
-2022.10.12 코딩테스트 문제풀기
-2022.10.13 코딩테스트 문제풀기(스킬 체크 테스트 1레벨 통과)
-2022.10.14 깃%깃허브 입문(Do it!) 책 시작 
+2022.10.12  코딩테스트 문제풀기
+2022.10.13  코딩테스트 문제풀기(스킬 체크 테스트 1레벨 통과)
+2022.10.14  깃%깃허브 입문(Do it!) 책 시작 (깃설치 및 깃허브로 클라우드 생성)
+2022.10.15  코딩테스트 문제풀기 (zfill함수)(비트연산자)(rjust오른쪽정렬(전체자리숫자,공백대체문자))
+            from itertools import permutations = 순서상관써서 모든조합 import combinations = 순서없이 모든조합
+            import product 2개이상의 리스트에서 조합 
+            from math import gcb 최대공약수를 구해줌
+            list comprehension ex(t=[i for i in range(10) if i%3==0]) # t=[3,6,9]
+            enumerate
