@@ -1,13 +1,18 @@
 def solution(N, stages):
-    count=[0]*N
-    rank=[0]*N
-    for x in range(0,N):
+    count=[0]*(N+1)
+    rank=[0]*(N+1)
+    for x in range(0,N+1):
         count[x]=(stages.count(x+1))
         print(count)
     for x in range(0,N):
-        rank[x]=count[x]/sum(count[x:])
+        try:
+            rank[x]=count[x]/sum(count[x:])
+        except:
+            1
 
     print(rank)
+    for i in rank:
+        temp.append(sorted(rank).index(i)+1)
 
     return 1
 
