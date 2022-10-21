@@ -3,5 +3,6 @@ print(numbers)
 """
 
 
-for i ,j in enumerate(["a","b","c"],start=1):
-    print(i,j)
+s="[](){}"
+t=list(map(str,s))
+print(t)

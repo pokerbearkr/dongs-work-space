@@ -12,11 +12,12 @@
 
 
 def solution(n):
+    a = [True] * (n + 1)
+    m = int(n**0.5)
 
-    tem=[True for i in range(n)]
-    print(tem)
-    for x in range(1,int(n**0.5)+1):
-        
-    return 1
-
-print(solution(10))
+    for i in range(2, m + 1):
+        if a[i] == True:
+            for j in range(i + i, n + 1, i):
+                a[j] = False
+    return len([i for i in range(2, n + 1) if a[i] == True])
+# 에라토스테네스의 체 100개 깔고 2의배수지우고 3의배수지우고...
