@@ -23,4 +23,4 @@ def solution(cacheSize, cities):
 
 # print(solution(3,["Jeju", "Pangyo", "Seoul", "NewYork", "LA", "Jeju", "Pangyo", "Seoul", "NewYork", "LA"]))
 # print(solution(3,["Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul"]))
-# print(solution(0,["Jeju", "Pangyo", "Seoul", "NewYork", "LA"]))
+# print(solution(0,["Jeju", "Pangyo", "Seoul", "NewYork", "LA"]))   
