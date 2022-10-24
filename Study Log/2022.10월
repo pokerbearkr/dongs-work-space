@@ -13,3 +13,4 @@
             reduce 함수 from functools import reduce 
             reduce(집계 함수, 순회 가능한 데이터[,초기값]) ?? 잘모르겠음
             zip 함수 zip([1,2,3],[4,5,6]) => (1,4),(2,5),(3,6)
+2022.10.24  isnumeric 숫자인가
