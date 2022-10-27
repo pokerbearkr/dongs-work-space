@@ -13,9 +13,15 @@
             reduce 함수 from functools import reduce 
             reduce(집계 함수, 순회 가능한 데이터[,초기값]) ?? 잘모르겠음
             zip 함수 zip([1,2,3],[4,5,6]) => (1,4),(2,5),(3,6)
-2022.10.24  isnumeric 숫자인가
-2022.10.25  from collections import counter 함수 변수에 들어있는것들을 세준다 단어별or문자별 등등
+2022.10.24  isnumeric 숫자인가 isalpha 알파벳인가 isdigit 숫자인가
+2022.10.25  from collections import counter 함수 변수에 들어있는것들ㅈ을 세준다 단어별or문자별 등등
             튜플문제 split할때 },{이런거로도 split 가능한거 아이디어 확인
             동적계획법 문제푸는법 이해 한쪽에서부터 더해가면서 변수내용바꾸기
 2022.10.26  import re   fineall 함수 사용법 ???
             컴퓨터 코딩학원 알아보기 내일배움카드 신청
+2022.10.27  heapq 자료구조(이중우선순위큐) 최대값과 최소값 빠르게 찾기 가능
+            재귀함수 최대재귀깊이는 1000
+            deque 스택과 큐의 기능을 모두 가진 객체 append,pop,appendleft,popleft
+            from collections impore deque
+            all함수 any함수 all안에있는 모든 인자가 True면 True리턴 하나라도 False면 False리턴
+            any는 하나라도 True면 True리턴 전부다 False일때만 False리턴함
