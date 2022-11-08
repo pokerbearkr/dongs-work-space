@@ -1,0 +1,8 @@
+상수 선언       함수 선언할때 앞에 final을 붙히면 된다. 한번 선언하면 바꿀수 없음
+키 입력받기     import java.util.Scanner;   Scanner scanner = new Scanner(System.in);
+                Java 는 scanner.next()사용해서 데이터를 하나씩 불러온다.
+비트 연산       a & b 연산
+스위치 문       switch(조건)
+                case 경우1
+                case 경우2
+                default 케이스에 없을때 작동

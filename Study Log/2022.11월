@@ -1,3 +1,6 @@
 2022.11.03  자바의정석 책 시작
             %d 10진수형식 %x 16진수형식 %f 플로트형식 %c 문자형식 %s string형식
             import java.util.Scanner; scanner scanner = new Scanner(System.in);
+            포트폴리오용 홈페이지 제작
+2022.11.05  Java 공부시작 함수정의~for,while문까지
+2022.11.06  Java 공부 배열~ 
