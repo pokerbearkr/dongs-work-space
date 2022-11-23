@@ -1,12 +1,13 @@
 def solution(n):
-    rev_base = ''
+    array=['1','2','4']
+    answer=""
+        
+    while n > 0 :
+        answer=array[n%3-1]+answer
+        n=n//3
 
-    while n > 0:
-        n, mod = divmod(n, 3)
-        rev_base += str(mod)
-    
-    tem=rev_base[::-1]
-    return tem 
+
+    return answer 
     # 역순인 진수를 뒤집어 줘야 원래 변환 하고자하는 base가 출력
     
 print(solution(1))
@@ -16,3 +17,6 @@ print(solution(4))
 print(solution(5))
 print(solution(6))
 print(solution(7))
+print(solution(8))
+print(solution(9))
+print(solution(10))
