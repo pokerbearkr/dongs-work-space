@@ -1,0 +1,104 @@
+Main Memory
+
+
+Segmentation 의미가 있는 단위로 쪼깨지는것
+
+보통은 어느 주소로 들어갈지 정해두고 프로그래밍하지 않는다. 그런프로그램은 Absolute program(절대 프로그램)이라고 부른다.
+
+프로그램들은 0번지로 들어간다고 생각하고 프로그래밍한다. 실제로는 0번지로 들어가지않음(0번지는 보통 OS가 사용함)
+Load time binding scheme : relocatable code를 만들어서 재배치가능한 주소를 배당함
+
+Compile,Linking,Loading 3군데에서 건들수있음
+
+MMU(Memory-Management-Unit)
+    logical address         physical address
+CPU ----------------> MMU ------------------> physical memory
+logical 주소랑 physical 주소랑은 서로 다를 수 있다.
+코딩짤때 포인터 사용해도 그 프로그램안에서만 작동됨 다른곳에서 아까 얻은 포인터 주소 가져와서 사용해도 안됨
+dll(dynamic link library)
+평소에는 exe파일로 실행해서 dll파일 가져와서 도와줌
+
+First-fit:제일 앞에있는 hole에 넣음
+Best-fit:넣고나서 제일 조금 남는곳에 넣음
+Worst-fit:가장 넓은곳에 넣음
+Best-fit과 Worst-fit 은 전부다 뒤져보고 판단해야해서 조금 걸림
+
+Compation 메모리로 load 되어서 일하고있는 Process들을 한쪽으로 쭉 밂
+대신 원래 일하고있던 Process들이 주소가 바뀔수 있다.
+
+data Structure은 Main memory에 저장되는 애들을 말함
+
+logical 주소와 physical 주소가 서로 다르므로 변환해주는 작업이 필요하다.
+segment table을 보고서 시작주소와 사이즈를 보고 판단함.
+이걸 이용해서 해킹할수도있다. segment 사이즈보다 더 큰걸 요구한다면 address error를 보내야함.
+
+paging 미리 똑같은 사이즈로 잘라두고 빈공간에만 집어넣는다. 
+logical memory를 똑같은 사이즈로 자른것을 pages라고하고 physical memory를 똑같은 사이즈로 자른것을 frames 또는 page frames이라고 한다.
+
+page table은 main memory에 저장되어 있다.
+
+
+
+Virtual Memory
+
+메모리는 항상 모자르다 하드디스크의 일부를 가져와서 사용하는게 Virtual Memory의 테크닉이다.
+프로그램에서 요구하는 메모리보다 작아도 프로그램이 돌아가게 해줌
+
+Swapping
+실행중에 main memory에서 쫓겨나서 backing store로 감 이때는 ready running waiting 아무상태도 아니다.
+
+Page Fault
+프로세스의 모든 페이지가 물리메모리에 로드되지 않은 상태로 이럴때는 Virtual memory에 가서 해당 페이지를 찾아야 한다.
+
+page replacement
+사용중이지 않은 victim frame을 찾아서 내쫓고 교체한다.
+
+이제 나가야할 애를 어떻게 찾냐 할때 쓰는 알고리즘
+FIFO(First in first out) : 먼저들어온 page를 내보낸다. 생각보다 좋지 않은 방법 먼저들어온애를 많이 사용할 가능성이 높음
+LRU(Least recently used) : 안쓴지 가장 오래된 page를 내보낸다. 
+LFU(Lease frequently used) : 가장 적게쓴 page를 교체한다. 방금 불러온 page는 한번만 사용되었기 때문에 장단점 있음
+MFU(Most frequently Used) : 많이 쓴 page를 내보낸다. 많이써서 앞으로 안쓸거라 생각해서 내보낸다.
+
+Thrashing
+page fault가 증가하여 cpu utilization이 급격하게 떨어지는 현상을 나타낸다. (한번 나락가면 급격하게 나락감)
+
+
+
+
+Mass-storage Structure
+
+
+hard disk의 기본 저장 원리정도는 알아둬라.
+Hard disk의 최소 저장단위는 sector이다.
+arm이 움직이는 시간이 가장 길다.  엘레베이터처럼 arm이 쭉 왔다갔다 하면서 읽어냄
+
+SAN(Storage area network)
+NAS(Network-attached Storage)
+
+RAID(redundant array of inexpensive disks)
+여러 하드디스크 사용하면서 Mirroring and shadowing 하면서 하드디스크의 데이터를 보호함
+SSD는 수명이 짧다..?(인터넷검색시에는 길다고 나오긴함)
+
+
+File-System interface
+
+File Attributes(name,identifier,type,location,size,protection,time,date,user identification)
+리눅스는 확장자에 크게 구애받지않음
+
+sequential access 순서대로 읽는다
+
+direct access(relative access) 원하는곳에 바로가서 읽는다.
+logical record 우리는 이어져있다고 생각하고 작업하는데 사실은 그렇지 않다. (학생3명 붙혀주세요 하면 앉을곳이 없다)
+ISAM(indexed sequential-access method)
+
+partition(드라이브를 나누는것) 리눅스를 쓰게되면 반대상황도 생김 하드디스크 2개를 합쳐서 하나의 하드디스크처럼 사용하기도함
+리눅스와 윈도우즈의 가장 큰 파일시스템차이는 여기서 나온다. 
+
+윈도우즈쓰는 학생의 95%는 NTFS사용하고 5%는 FAT32사용한다. 자기가 쓰는 파일시스템의 이름정도는 알아둘것
+
+
+linux는 새로운 usb를 연결한다하면 mount해야만 사용할 수 있다. 원래 데이터가 있던곳에 mount하는순간 원래있던 데이터가 안보인다. 이 데이터는 나중에 unmount하면 다시 보임
+그래서 가능하면 빈 디렉토리에 mount한다.
+
+
+
