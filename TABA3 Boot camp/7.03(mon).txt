@@ -1,0 +1,108 @@
+프로그램이 잘 돌아가는게 아니라
+프로세스가 돌아가냐고 표현해야한다.
+
+OS는 USER와 H/W사이에서 작동하는것
+OS를 쓰는이유는 Easier,Convenient,Effcient 3가지 이유가 있다.
+
+OS성능의 기준 1.단위시간당 처리되는 일의 양 2.Utilization 리소스 사용량 3.응답시간(서비스를 요청받고 시작하기 까지의 시간)
+
+2<->3 충돌 응답시간이 적으려면 사용하지않는 리소스가 있어야함
+
+제한된 자원을 효율적으로 써야함
+
+OS가 뭐냐고 universally하게 정의된게 없다. 기계가 바뀌고 시스템이 바뀌기 때문에 추가되거나 빠지는게 있다.
+
+메모리는 읽고 쓰고 저장 기능밖에 없다. CPU가야 실행됨
+
+OS는 항상 실행됨, 실행되려면 메모리가 있어야함-> OS는 항상 메모리에 있다.
+
+CPU/MEMORY말고 다 I/O라고 부름(꾸준하게 바뀌기 때문에)
+
+그래픽카드랑 모니터가 있듯이 I/O컨트롤러가 있고 I/O디바이스가 있다.
+
+
+I/O
+
+
+POLLING 앞에 컨트롤러에게 작업 다 끝났냐고 끊임없이 물어보는것
+INTERRUPS 끝나면 컨트롤러가 신호를 보내줌  Interrupts-request line이 따로 필요
+신호를 보내고 다른일을 하다가 Interrupt신호가 오면 중단하고 찾고 누군지 찾는다
+이때 POLLING과 VECTOR INTERRUPT가 있는데 POLLING은 모든 디바이스에게 물어보는거고 VECTOR은 신호와 함께 디바이스 번호가 간다.
+
+하드는 1바이트 수정하고 싶어도 Block을 통채로 읽어온 다음에 수정하고 다시 보낸다
+DMA Structure DMA Device Controller에게 CPU의 일을 전달해준 후 CPU는 자기할일하고 그 뒤부터는 DMA의 제어하에 작동한다.
+
+Cycle stealng CPU가 비싸서 디바이스 컨트롤러가 양보해야 할 거 같지만 CPU가 양보함
+
+Synchronous Blocking I/O가 개발쉽지만 느려서 점점 Asynchronous Non-blocking I/O로 만들어야한다.
+
+apple m1이라고 cpu,gpu등등 다 합쳐진 칩셋이 나왔다(Intel 하락 예상)
+
+///////////////////////////
+
+booting 컴퓨터 켜는과정
+
+finds the OS kernel on disk (boots sector에 따로 저장되어있어서 찾을필요 없음)
+
+loads OS kernel into memory 찾은걸 메모리로 가져다둠
+
+Begins OS execution OS실행
+
+위에 일을 하는건 bootstrap loader가 한다.(전기가 꺼지면 사라지는곳에 있으면 안됨 *ROM에 있음)
+
+Caching - registers로 갈수록 비싸고 빠르고 hard-disk로 갈수록 느리고 싼데 그걸 합쳐서 빠르고 싸게 하려고 하는 기술
+빈번하게 쓰는 데이터를 가까운곳에 두고 잘 안쓰는 데이터를 멀리 가져다둠(복사해서)
+
+실행중인 프로그램을 process라고 한다.
+Creating and Deleting(실행&종료)
+Suspending and resuming(대기&재진행)
+process synchronization & process communication 정도는 해야지 프로그래머라고 할 수 있다.
+
+single general-purpose processor(cpu)
+special-purpose processors 특정 목적을 가진 컴퓨터 (ex.tank) 진입장벽이 높은곳이 한번 넘으면 편하다.
+
+multiprocessors를 쓰는이유 1.throughput 향상 2.economy of scale 3.increased reliability(신뢰성 향상) 1개가 고장나도 안멈추고 안정적임
+
+A von Neumann architecture 우리가 지금 쓰는 컴퓨터의 구조를 만든사람
+
+
+Multiprogramming and Multitasking
+
+여러개의 프로그램을 동시에 memory에 올리고 scheduling하면서 실행
+
+빨리 왔다갔다 하니까 자기만 실행된다고 착각
+
+Clustered Systems 중간에 Load Balancer가 뒤에있는 DB server들에게 일을 배분해줌
+
+
+Cloud
+
+Software as a service(SaaS)-완전 사용자를 위한 클라우드
+Platform as a Service(PaaS)-핵심적인 내용만 가지고 있으면 플렛폼에서 전부다 제공해줌
+Infrastructurea as a Service(IaaS)-AWS처럼 서버를 빌리거나 주소를 빌리거나 그런것
+
+Virtualization 가상화
+
+에뮬레이션처럼 가상기계만듬 실습때 windows에다가 가상 Linux 깔아서 사용예정
+app만들때도 emulation으로 테스트하는것도  Virtualization임
+development,testing할떄 자주 사용함
+
+OS가 하는일
+프로그램실행,I/O작동,파일조작,에러감지,UI
+
+
+리눅스는 처음부터 몇백명 개발을 위해서 만들어졌다. 효율좋아서 기업에서 거의 사용
+리눅스를 설치할때 데스크탑버전과 서버버전을 제공한다, 데스크탑버전은 GUI도 제공하기도한다.
+
+System calls는 OS에서 제공되는 Programming interface
+
+API는 어플리케이션에 들어가있는게 아닌 따로 어디가서 실행되고 돌아온다.
+
+Library는 소스를 가져와서 프로그램에 합쳐져서 사용
+
+Frameworks는 잘 설계된 일반적인, 재사용 가능한 모듈
+
+가고싶은 회사에따라서 위에 4개 사용하는비중이 다름
+
+
+
