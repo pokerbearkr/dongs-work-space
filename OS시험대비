@@ -47,4 +47,57 @@ process의 정의
 실행중인 프로그램을 프로세서라고 한다.
 
 process state의 정의
+process state의 상태는 new,ready,running,waiting,terminated 총 5가지가 있다.
+new는 프로세스가 방금 만들어진것
+terminated는 프로세스가 작업을 끝낸것
+running은 CPU에서 수행이 되고있는 상태를 말한다.
+ready는 실행할 준비가 되었고 다른프로세스가 작업을 끝내서 CPU가 오기를 기다리고 있는 상태이다.
+waiting은 I/O나 다른 이벤트가 발생하기를 기다리는 상태이다.
+
+Diagram of Process State모양 외워둘것
+
+Context switch의 정의
+하나의 프로세스가 CPU를 사용 중인 상태에서 다른 프로세스가 CPU를 사용하도록 하기 위해, 이전의 프로세스의 상태를 보관하고 새로운 프로세스의 상태를 load하는 작업을 말한다.
+
+fork(),exec() 명령어의 정의
+fork()는 자식프로세서를 만들고 부모프로세서와 동시에 동작하게된다.
+exec()는 부모프로세서와 다른 작업을 할 수 있게 만들어준다.
+
+Single of Multithreaded Processes의 정의
+
+
+amdahl''s Law의 정의
+암달의 법칙 컴퓨터 시스템의 일부를 개선할 때 전체적으로 얼마만큼의 최대 성능 향상이 있는지 계산하는데 사용된다.
+1/((1-P)+P/S)
+
+Thread libraries의 정의
+POSIX Pthreads
+Windows threads
+Java threads
+
+Thread Pools의 정의
+
+CPU scheduler의 정의
+
+
+SJF(Shortest-job-fisrt) Scheduling의 정의
+최단작업 우선 스케줄링으로 non-Preemptive와 Preemptive 2종류가있다.
+non-Preemptive의 경우에는 한번 작업을 시작하면 끝까지 진행하고 Preemptive의 경우에는 중간에 더 짧은애가 오면 걔를 수행한다.
+
+
+Round robin의 정의
+시분할 시스템을 위해 설계된 선점형 스케줄링의 하나로서 프로세스 사이에 우선순위를 두지않고 순서대로 시간단위로 CPU를 할당한다.
+
+
+Prioriry scheduling의 정의
+각 프로세스에게 우선순위를 배겨서 scheduling하는것이다.
+우선순위 높은애가 계속 들어오면 낮은애는 평생 작동못하는 starvation이 생길 수 있다.
+그떄는 aging이라는 남아있는 애들에게 점수를 부여하는 기술로 커버가능
+
+
+Synchronization의 정의
+Race condition
+Critical section
+Mutual exclusion
+
 
