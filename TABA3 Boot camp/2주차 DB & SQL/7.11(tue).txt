@@ -1,0 +1,119 @@
+DB & SQL(Database and Structured Query Language)
+
+
+DB의 정의
+조직의 모든 응용 application(프로그램)이 공유하기위해 통합 저장한 운영 데이터 operational data의 집합
+
+Database system
+DB,DBMS,USER(#DB application은 포함되지않음)
+
+DB성능단위는 tps로 transaction per second
+초단 몇 트랜젝션을 처리하냐에 따라서 결정된다.
+
+tpc.org에는 db의 성능 및 디테일이 적혀있으므로 관심있으면 자주 들어가보도록
+
+DBMS의 기능
+정의:DB구조정의,테이블구조 정의
+조작:DB조작, 검색, 삽입, 삭제, 갱신
+제어:회복, 동시성 제어, 보안, 무결성
+
+index는 엄청 중요
+
+micro access는 되게 쉽고 편한데 성능이 안좋고 oracle로 갈수록 어렵고 불편하지만 성능이 좋다.
+
+ER modeling = Entitiy-Relationship modeling
+ 
+Data Language(데이터 언어)
+DDL:Data Definition Language 데이터를 정의할때 사용  (ex. create table, drop table,alter table 등등)
+DML:Data manipulation language 데이터를 조작, 삽입, 삭제, 갱신 등등 할때 사용(ex. select from where insert into 등등)
+DCL:Data control language 데이터 제어어. 회복, 무결성, 보안 관리 할때 사용(ex. grant to revoke fromlock commit 등등)
+
+Select {ColumnName}
+From {TableName}
+Where {Conditions}
+
+
+Select distinct columnname하면 중복을 제거해준다. 하지만 sort명령어가 자동으로 입력됨
+
+order by 명령어로 정렬할 수 있다. 기본적으로 오름차순이고 desc적으면 내림차순으로 정렬됨
+
+
+wildcard 문자는 아무거나 채워도 되는 그런 문자인데 SQL,Oracle 기반에서는 _랑%로 사용하고 MS기반에서는 ?랑*로 사용한다.
+
+group by 로 그룹화가능
+
+
+subquery라고해서 query문 안에 query를 넣을 수 있다.
+보통은 안에서부터 밖으로 차례차례 해석하면 편함
+correlated subquery라고 해서 밖에서부터 안으로 들어오는 query도 있음
+
+내가 원하는게 1테이블에만 있다면 서브쿼리사용 여러테이블에 있다면 조인 사용
+
+관계형모델과 정규화
+
+데이터 모델 (data model)
+개념적 데이터 모델(conceptual data model)
+ex.E-R모델
+
+논리적 데이터 모델(logical data model)
+ex.oracle
+
+
+2테이블이 좋냐 1테이블이 좋냐 따지는게 정규화(nomalization)다
+
+관계 데이터 모델
+<S,O,C>로 구성되어있다.
+S:Structure. 구조
+O:Operation. 연산
+C:Constraints. 제약조건
+
+다른 연산은 아는대로 하면되고 나누기 연산은 자기가 궁금한 자료 뺴올때 사용한다.
+
+inner join은 교집합만 join 된다.
+outer join은 join이 안된것도 다 보여준다.
+
+relation의 정의
+set of tuples
+relation scheme=제목,  relation instance=내용
+
+functional dependency 함수종속
+한가지 값이 정해지면 다른값도 따라다니는 값
+
+
+key 관계종속에서 가장 중요
+
+key의 성질
+1.유일성 2.최소성
+
+composite key 복합키
+2개 이상의 column을 포함하는 키를 복합키라고 한다.
+
+candidate key 후보키
+키가 될 수 있는 자격을 가진것들을 후보키라고 한다.
+
+primary key 기본키
+후보키중에 하나를 선택한 키로 유일성과 최소성을 만족하는 키이다.
+
+alternate key 대체키
+후보키중에서 기본키로 정해지지 못한애를 대체키라고한다.
+
+foreign key 외래키
+다른키에서는 기본키인데 여기서는 아무것도 아닌것을 외래키라고 한다.
+
+개체무결성:기본키에 대한 제약, 기본키는 null값을 가질 수 없다.
+
+참조 무결성:외래키에 대한 제약, 외래키는 그 자신이 기본키로 사용된 테이블의 기본키의 값을 가진다. null값은 허용된다.
+
+null값은 디스크의 공간을 줬는데 데이터가 없는것이므로 가능하면 null값을 줄이는게 좋다.(자리만 차지)
+
+key는 보통 anomalies(이상현상)을 감지하기 위해서 존재
+update anomaly
+delete anomaly
+insert anmaly
+
+데이터의 정규화에는 n차 정규화가 있다.
+1가지 테이블이 1개의 주제만 가지도록 하는게 정규화이다.
+
+1NF 2NF 3NF 3,5NF 등등 다양하니 대충 순서 이해하도록
+
+
