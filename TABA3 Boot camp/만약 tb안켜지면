@@ -1,0 +1,9 @@
+source ~/.bashrc
+tbsql sys/tibero
+
+error뜨면 quit후
+tbdown
+tbdown clean
+tbboot
+tbsql sys/tibero
+

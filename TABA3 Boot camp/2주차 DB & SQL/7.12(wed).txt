@@ -1,0 +1,39 @@
+DB의 데이터타입은
+int ,varchar, char ,datetime 등등 되게 많다
+
+View의 사용이유
+1.보안성
+특정 행이나 컬럼을 숨길 수 있고 update 할 수 없으니 보안성이 좋다.
+2.편의성
+테이블이 엄청 복잡할때 자기가 원하는 정보만 볼 수 있다.
+
+
+SQL의 종류
+1.Interactive SQL
+
+2.Procedural SQL(절차적 SQL)
+
+3.Embedded SQL()
+Ocacle:Pro*C : C에 sql을 연결했다.
+
+
+Trigger
+특정 이벤트가 발생하면 자동으로 실행되는 프로그램을 Trigger라고 한다.
+Before, Instead of, After 3종류의 Trigger가 있다.
+
+Stored Procedures
+일반적인 DB에 저장되는 프로그램을 말하고 절차적 언어를 사용해서 만들고 자주 사용된다.
+input parameters를 받을 수 있고 결과를 return 할 수 있다.
+어디서나 불러서 반복사용할 수 있다.
+
+
+Delete 문을 사용할때 where절을 까먹으면 테이블 전체가 지워지므로 까먹으면 절대 안된다.
+
+select
+from
+where
+group by
+having
+order by 순으로 입력한다.
+
+NVL(a,b)함수는 Null이 아니면 그대로 a를 출력하고 NULL이면 b를 출력한다.
