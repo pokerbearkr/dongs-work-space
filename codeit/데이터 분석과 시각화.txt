@@ -1,0 +1,21 @@
+1.시각화의 두가지 목적
+시각화는 분석에 도움이 된다. 
+리포팅에 도움이 된다.
+
+주피터에서 사용하려면
+%matplotlib inline을 적어둬야한다.
+.plot()는 판다스에 있는 메소드이다.
+df.plot()는 모든거 다 출력
+df.plot(y='KBS) or df['KBS'].plot()
+kind함수로 그래프타입 지정가능하다 기본이 선그래프라서 선그래프는 생략가능함
+
+
+막대 그래프
+카테고리 비교를 위해서 사용
+df.plot(kind='bar')
+df.plot(kind='barh') 막대그래프가 누워서 나옴
+df.plot(kind='bar',stacked=True) 그래프가 쌓여서 나옴
+
+파이 그래프
+몇퍼센트를 차이했는지 궁금할때 사용
+df.plot(kind='pie')
