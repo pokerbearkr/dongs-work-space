@@ -1,0 +1,58 @@
+3주차에는 9시40분 시작 5시10분 끝
+티맥스 티베로 소속 김범석 엔지니어
+실습은 Self
+
+Tibero architecture
+
+
+tibero client 접속하는대상
+
+접속하려면 5가지 접속정보가 필요
+IP, PORT , User name, Password, 
+
+한번 접속하면 별도로 끊지 않는한 유지된다.
+클라이언트가 접속요청을 하면 리스너가 받아서 빈 WTHR을 찾아서 CTHR에게 넘겨준다.
+
+CTHR(Control Thread)
+각 working precess 마다 하나씩 생성 서버 시작시에 지정된 개수의 worker thread 생성
+
+WTHR(Worker Thread)
+각 working precess마다 여러개 생성 client가 보내는 메세지를 받아서 처리하고 결과를 리턴
+
+TSM(Tibero Shared Memory)
+공유 메모리 영역 사용자가 동시에 데이터를 공유
+데이터를 한번 사용하고 버리는게 아니라 다른 사용자가 가져가서 사용한다.
+
+데이터베이스 저장구조
+
+Archived Redo Log Files
+본 저장소가 문제되었을때 복구용
+
+Tablespace를 만들때 DataFile을 다 같이 만드므로 Tablespace를 만들때 전부다 정의해줘야한다.
+
+Control Files
+작은 Binary File로 Database의 구조
+
+UNDO segment
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
