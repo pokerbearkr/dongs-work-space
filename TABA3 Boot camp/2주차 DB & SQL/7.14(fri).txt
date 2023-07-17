@@ -1,0 +1,48 @@
+E-R model(Entitiy-Relationship model)
+
+객체 관계 모델이고 자주사용하는 모델이다.
+
+entity 식별가능한 유형,무형의 사물
+
+Entity class 동일한 타입을 가지는 entites의 모임
+Entity instance 
+
+Attribute
+entity들의 특징을 설명하는 것 entitiy들의 밸류는 다르다.
+
+Identifiers 식별자
+attributes의 이름 같이 식별할 수 있게 해줌
+
+Composite identifiers 2개이상을 합친 identifiers같은것
+
+cardinality
+몇개나 연결되나
+
+weak entities
+존재가 다른 entity에 의존하는 entitiy를 뜻한다.
+
+recursive relationships
+객체 자체가 자기자신과 관계를 가지는걸 말한다.
+
+data constraints
+domain constraints 컬럼값이 특정한 set에 맞춰서 values가 주어져야하는것
+range constraints 컬럼값이 주어진 범위안에서 values가 들어오는것
+intrarelation constraints 같은 테이블에있는 다른 값에 영향을 주고받는것
+interrelation constraints 다른 테이블에있는 다른 값에 영향을 주고받는것
+
+Relationship
+1:1 relationship : 한 relation의 PK를 다른 relation에 FK로 추가
+1:N relationship : 하나의 PK를 많은곳의 FK로 추가
+N:M relationship : 양쪽 relation의 PK를 새 relation에 FK로 추가
+
+Managing Multiuser Database
+모든 조직의 데이터와 권한을 담아뒀기 때문에 굉장히 중요하다.
+
+Locking 기법
+데이터를 동시에 불러가서 꼬이지 에러나지않게 lock걸어서 다른유저가 데이터를 못가져가게 하는것이다.
+
+A user와 B user가 하나씩 lock 걸고 상대방이 가진걸 달라고 요청하고 있으면 다 멈춰버리는 deadlock현상이 발생한다.
+
+
+ACID transactions
+Atomic, Consistent, Isolated, Durable
