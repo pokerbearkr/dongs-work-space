@@ -1,0 +1,20 @@
+Kernel의 특징
+항상 실행되고 있다. 컴퓨터가 동작하려면 가장 먼저 메모리에 올라온다.
+
+Interrupts는 보통 입출력이 완료될때 걸림
+
+cache = s ram
+main memory = d ram
+
+Global 변수는 계속 메모리에 들어가있다.
+Local 변수는 잠깐만 들어왔다가 나가서 가능하면 Local을 사용하는게 좋다. 메모리는 비싼자원이기때문에 아낄 수 있다.
+
+PID=Parent ID 
+프로세스와 파일개념 잘 알아두도록
+
+PCB(Process Control Block)
+프로세스 관리함
+
+ls -i
+inode(index node)로 보겠다
+char
