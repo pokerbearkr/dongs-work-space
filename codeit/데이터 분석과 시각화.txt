@@ -19,3 +19,128 @@ df.plot(kind='bar',stacked=True) 그래프가 쌓여서 나옴
 파이 그래프
 몇퍼센트를 차이했는지 궁금할때 사용
 df.plot(kind='pie')
+
+히스토그램
+df.plot(kind='hist',y=궁금한값)
+따로 설정은 안해주면 막대 10개
+df.plot(kind='hist',y=궁금한값,bins=막대갯수)
+
+박스플롯
+데이터들의 통계를 시각적으로 보여줌
+이상점(outliers)들은 제외해서 따로 보여줌
+최대값,최소값,중간값,75,25%지점들 알려줌
+
+
+df['column'].describe()를 이용하여 대략적인 통계를 볼 수 있음
+df.plot(kint='box', y='궁금한거')
+df.plot(kint='box', y=['궁금한거','궁금한거2'])리스트식으로 보내주면 여러개 볼 수 있음
+
+산점도(scatter plot)
+점들의 모양을 보고 x와y축의 연관성을 찾을 수 있다.
+df.plot(kind='scatter',x='data1',y='data2')
+
+
+Seaborn(Statistical Data visualization)
+seaborn은 기본으로 제공하는 그래프보다 더 다양한 그래프들을 제공해서 더 좋은 인사이트를 제공함
+pip imstall seaborn 으로 설치하고
+import seaborn as sns 으로 import 한다.
+
+
+PDF(Probability Density Function)확률밀도함수
+고딩때 배운 확률밀도함수 맞음
+
+KDE plot(Kernel Density Estimation)
+우리가 무한한 자료를 가진게 아니라 굴곡이 이상하게 나오는데 KDE를 쓰면 굴곡을 부드럽게 표현 가능하다.
+
+
+sns.kdeplot(df['test'])
+seaborn 라이브러리의 kdeplot 함수를 사용
+sns.kdeplot(df['test'],bw=0.05) bw라는 파라미터로 얼마나 부드럽게 하냐를 조절 가능하다.
+
+sns.distplot(df['test'],bins=15)
+히스토그램 위에 KDE곡선이 그려져서 2개를 같이 볼 수 있다.
+
+sns.violinplot(y=df['test'])
+KDE그래프를 2개 대칭되게 겹친모양으로 그래프를 그려준다.
+
+sns.lmplot(data=df,x='test' y='test2')
+회귀선을 그려준다. 
+
+sns.catplot(data=df, x='os', y='test',kind='box(원하는종류)')
+sns.catplot(data=df, x='os', y='test',kind='box(원하는종류)',hue='parameter)
+hue 옵션으로 색을 변경할 수 있다.
+
+
+상관계수
+가장 많이 쓰이는건 피어슨 상관계수
+-1~1까지 가능 0이면 서로 관계가 없다.
+
+df.corr()로 숫자데이터사이의 상관관계를 알 수 있다.
+sns.heatmap(df.corr())로 시각화해서 볼 수 있다.
+
+
+EDA(Exploratory Data Analysis)
+각 row와 각 column이 무엇을 의미하는가 등등 데이터를 다양하게 탐색해보는것
+
+
+basic_info = df.iloc[:, 140:]
+basic_info에 모든컬럼 140~끝까지 정보를 담고
+basic_info.describe()를 하여 기본적인 정보를 알 수 있다.
+
+
+상관관계분석
+위에처럼 원하는것만 가져온다음 corr()을 사용하고 sort.values()함수를 이용해서 어떤것이 제일
+상관관계가 있는지 알 수 있다.
+
+
+클러스터 분석
+corr=df.corr()로 저장한후
+corr['test'].sort_values()로 볼 수 있다.
+sns.clustermap(corr)명령어로 아까했던 heatmap이랑 비슷한것을 만들수 있다.
+연관성있는 관심사끼리 묶어서 표현해줌
+
+
+새로운값 계산하기
+df['co1']+df['co2']...+df['co6']
+df.sum(axis='columns')로 합치기 가능
+
+
+문자열 필터링
+df[df['test']=='code']          얘는 정확하게 code라는 단어만 가져옴
+df['test'].str.contains('code') 얘는 code가 포함되어있으면 가져옴
+df['test'].str. startwith('code') code가 맨 앞에 오는애들만 가져옴
+
+
+문자열 분리
+df['test'].str.split() 파이썬처럼 나눠줌
+df['test'].str.split(n=1,expand=True)
+n은 나누는 개수 expand를 적으면 새로운 dataframe으로 리턴해줌
+pat파라미터로 무엇을 기준으로 나눌지 정할 수 있다.
+
+
+카테고리로 분류
+df['test'].map(test_changed) 왼쪽에 있던것을 오른쪽으로 바꿔줌
+
+
+groupby
+카테고리별 분석하는걸 편하게 도와줌
+tem=df.groupby('test')
+tem.count()
+tem.mean()
+tem.first() 같은 함수로 데이터분석하기 편하게 도와줌
+
+데이터 합치기
+pandas에 있는 merge함수 사용
+inner join
+left outer join
+right outer join
+full outer join 4가지가 있다.
+
+pd.merge(df1,df2,on='product')
+inner join
+
+pd.merge(df1,df2,on='product',how='left')
+left outer join
+
+pd.merge(df1,df2,on='product',how='outer')
+full outer join
