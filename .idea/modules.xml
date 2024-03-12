@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/dongs-work-space.iml" filepath="$PROJECT_DIR$/.idea/dongs-work-space.iml" />
+      <module fileurl="file://$PROJECT_DIR$/beakjoon/java/java.iml" filepath="$PROJECT_DIR$/beakjoon/java/java.iml" />
     </modules>
   </component>
 </project>
